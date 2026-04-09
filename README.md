@@ -42,6 +42,12 @@ Or to deploy only a single content package, run in the sub-module directory (i.e
 
     mvn clean install -PautoInstallPackage
 
+If `ui.frontend` must use the Node/NPM already installed on the machine instead of downloading them during the Maven build, run:
+
+    mvn clean install -PautoInstallPackage -Dfrontend.useLocalNode=true
+
+This switches `ui.frontend` to the local `npm` available in `PATH`. It avoids downloading the Node/NPM runtime from Maven, but `npm ci` will still download frontend dependencies from the npm registry.
+
 ## Documentation
 
 The build process also generates documentation in the form of README.md files in each module directory for easy reference. Depending on the options you select at build time, the content may be customized to your project.

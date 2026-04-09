@@ -35,6 +35,10 @@
     <packaging>pom</packaging>
     <name>AEMTR - UI Frontend</name>
 
+    <properties>
+        <frontend.build.script>prod</frontend.build.script>
+    </properties>
+
 
     <!-- ====================================================================== -->
     <!-- B U I L D   D E F I N I T I O N                                        -->
@@ -42,22 +46,6 @@
     <build>
         <sourceDirectory>src/main/content/jcr_root</sourceDirectory>
         <plugins>
-            <plugin>
-                <groupId>com.github.eirslett</groupId>
-                <artifactId>frontend-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>npm run prod</id>
-                        <phase>generate-resources</phase>
-                        <goals>
-                            <goal>npm</goal>
-                        </goals>
-                        <configuration>
-                            <arguments>run prod</arguments>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
@@ -81,9 +69,11 @@
 
     <profiles>
         <profile>
-            <id>fedDev</id>
+            <id>managed-frontend-tools</id>
             <activation>
-                <activeByDefault>false</activeByDefault>
+                <property>
+                    <name>!frontend.useLocalNode</name>
+                </property>
             </activation>
             <build>
                 <plugins>
@@ -92,19 +82,91 @@
                         <artifactId>frontend-maven-plugin</artifactId>
                         <executions>
                             <execution>
-                                <id>npm run dev</id>
+                                <id>install node and npm</id>
+                                <goals>
+                                    <goal>install-node-and-npm</goal>
+                                </goals>
+                            </execution>
+                            <execution>
+                                <id>npm ci</id>
+                                <goals>
+                                    <goal>npm</goal>
+                                </goals>
+                                <configuration>
+                                    <arguments>ci</arguments>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>npm run build</id>
                                 <phase>generate-resources</phase>
                                 <goals>
                                     <goal>npm</goal>
                                 </goals>
                                 <configuration>
-                                    <arguments>run dev</arguments>
+                                    <arguments>run ${frontend.build.script}</arguments>
                                 </configuration>
                             </execution>
                         </executions>
                     </plugin>
                 </plugins>
             </build>
+        </profile>
+        <profile>
+            <id>use-local-node</id>
+            <activation>
+                <property>
+                    <name>frontend.useLocalNode</name>
+                    <value>true</value>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>npm ci</id>
+                                <phase>initialize</phase>
+                                <goals>
+                                    <goal>exec</goal>
+                                </goals>
+                                <configuration>
+                                    <executable>npm</executable>
+                                    <workingDirectory>${project.basedir}</workingDirectory>
+                                    <arguments>
+                                        <argument>ci</argument>
+                                    </arguments>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>npm run build</id>
+                                <phase>generate-resources</phase>
+                                <goals>
+                                    <goal>exec</goal>
+                                </goals>
+                                <configuration>
+                                    <executable>npm</executable>
+                                    <workingDirectory>${project.basedir}</workingDirectory>
+                                    <arguments>
+                                        <argument>run</argument>
+                                        <argument>${frontend.build.script}</argument>
+                                    </arguments>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>fedDev</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <frontend.build.script>dev</frontend.build.script>
+            </properties>
         </profile>
     </profiles>
 
