@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workspaceFilter version="1.0">
-    <filter root="/conf/aemtr" mode="merge"/>
+    <filter root="/conf/aemtr" mode="replace"/>
     <filter root="/content/aemtr" mode="merge"/>
     <filter root="/content/dam/aemtr" mode="merge">
         <exclude pattern="/content/dam/aemtr(/.*)?"/>

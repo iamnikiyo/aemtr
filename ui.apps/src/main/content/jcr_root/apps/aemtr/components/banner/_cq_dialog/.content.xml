@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+          xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="nt:unstructured"
+          jcr:title="Properties"
+          sling:resourceType="cq/gui/components/authoring/dialog" xmlns:granite="http://www.adobe.com/jcr/granite/1.0">
+    <content
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                    maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <common
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Common"
+                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                            margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <content
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/container">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <title
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldLabel="Title"
+                                                    name="./title"/>
+                                            <title2
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldLabel="Title 2"
+                                                    name="./title"/>
+                                            <description
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+                                                    fieldLabel="Description"
+                                                    name="./description"/>
+                                            <imageCommon jcr:primaryType="nt:unstructured"
+                                                           sling:resourceType="granite/ui/components/foundation/include"
+                                                           path="aemtr/components/utils/image"/>
+                                            <link
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                    fieldDescription="Banner Link"
+                                                    fieldLabel="Link"
+                                                    name="./link"
+                                                    rootPath="/content/aemtr"/>
+                                            <linkTarget jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/foundation/form/switch"
+                                                        fieldLabel="Link target"
+                                                        onText="self"
+                                                        offText="blank"
+                                                        value="_self"
+                                                        uncheckedValue="_blank"
+                                                        name="./linkTarget"/>
+                                            <backgroundColor cq:showOnCreate="{Boolean}true"
+                                                             jcr:primaryType="nt:unstructured"
+                                                             sling:resourceType="granite/ui/components/coral/foundation/form/colorfield"
+                                                             autogenerateColors="off"
+                                                             fieldLabel="Background Color"
+                                                             showDefaultColors="{Boolean}true"
+                                                             showProperties="{Boolean}true"
+                                                             showSwatches="{Boolean}true"
+                                                             name="./backgroundColor" />
+                                        </items>
+                                    </column>
+                                </items>
+                            </content>
+                        </items>
+                    </common>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

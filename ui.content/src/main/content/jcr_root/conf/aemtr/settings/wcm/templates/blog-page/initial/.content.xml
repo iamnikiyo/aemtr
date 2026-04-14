@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:template="/conf/aemtr/settings/wcm/templates/blog-page"
+        jcr:primaryType="cq:PageContent"
+        sling:resourceType="aemtr/components/page">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aemtr/components/container"
+            layout="responsiveGrid">
+            <container
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemtr/components/container"
+                layout="responsiveGrid"/>
+            <image
+                jcr:created="{Date}2026-04-09T16:49:55.223+02:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2026-04-09T17:09:59.664+02:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemtr/components/image"/>
+            <title
+                jcr:created="{Date}2026-04-09T16:50:15.030+02:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2026-04-09T17:10:03.372+02:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemtr/components/title"/>
+        </root>
+    </jcr:content>
+</jcr:root>

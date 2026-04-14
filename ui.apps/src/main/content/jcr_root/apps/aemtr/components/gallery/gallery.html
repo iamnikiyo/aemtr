@@ -1,0 +1,7 @@
+<div class="gallery-component" data-sly-use.model="com.aemtr.core.models.gallery.GalleryModel">
+    <div data-sly-list.image="${model.images}">
+        <a href="${image.link}">
+            <img class="${image.imageAlign}" src="${image.imageReference}"/>
+        </a>
+    </div>
+</div>

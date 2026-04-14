@@ -1,0 +1,17 @@
+<div data-sly-use.model="com.aemtr.core.models.banner.BannerModel">
+    Model color: ${model.backgroundColor} <br>
+
+    Title: ${properties.title}
+    ImageAlign: ${properties.imageAlign}
+    Image ${properties.imageReference}
+    target: ${properties.linkTarget}
+    link: ${properties.link}
+    background: ${properties.backgroundColor}
+
+    <div data-sly-resource="${'titlebanner' @ resourceType='aemtr/components/title'}">
+    </div>
+    <div data-sly-resource="${'imgbanner' @ resourceType='aemtr/components/image'}">
+    </div>
+
+
+</div>
