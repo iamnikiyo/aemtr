@@ -2,12 +2,15 @@
 <div
      data-sly-use.templates="core/wcm/components/commons/v1/templates.html"
      data-sly-test.hasContent="${model.logosMultifield}">
-    <section class="logo-list ${model.blog}">
-        <div>
-            <div data-sly-list="${model.logosMultifield}">
-                <div>
-                    <a data-sly-test="${item.link}" href="${item.link}"><img src="${item.logoReference}" alt="${item.imageAlt}"></a>
-                    <img data-sly-test="${!item.link}" src="${item.logoReference}" alt="${item.imageAlt}">
+     <section class="logo-list ${model.blog} my-10 rounded-lg border border-slate-200 bg-white p-6 shadow-md">
+        <div class="mx-auto max-w-5xl">
+            <p class="mb-6 text-sm font-semibold uppercase tracking-wide text-teal-700">Logos</p>
+            <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4" data-sly-list="${model.logosMultifield}">
+                <div class="flex min-h-28 items-center justify-center rounded-lg border border-slate-200 bg-slate-50 p-5">
+                    <a data-sly-test="${item.link}" class="block" href="${item.link @ context='uri'}">
+                        <img class="max-h-16 w-auto object-contain" src="${item.logoReference @ context='uri'}" alt="${item.imageAlt}">
+                    </a>
+                    <img data-sly-test="${!item.link}" class="max-h-16 w-auto object-contain" src="${item.logoReference @ context='uri'}" alt="${item.imageAlt}">
                 </div>
             </div>
         </div>

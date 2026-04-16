@@ -1,3 +1,23 @@
-<div>
-    Title: ${properties.title}
-</div>
+<sly data-sly-use.templates="core/wcm/components/commons/v1/templates.html"/>
+<sly data-sly-test.hasContent="${properties.title || properties.description || properties.imageReference}"/>
+
+<article data-sly-test="${hasContent}" class="my-6 rounded-lg border border-slate-200 bg-white p-6 shadow-md">
+    <img data-sly-test="${properties.imageReference}"
+         class="mb-5 h-48 w-full rounded-lg object-cover"
+         src="${properties.imageReference @ context='uri'}"
+         alt="${properties.title}"/>
+    <h3 data-sly-test="${properties.title}" class="mb-3 text-2xl font-bold text-slate-900">
+        ${properties.title}
+    </h3>
+    <p data-sly-test="${properties.description}" class="text-slate-700">
+        ${properties.description}
+    </p>
+    <a data-sly-test="${properties.link}"
+       class="mt-5 inline-flex rounded-lg border border-teal-700 px-4 py-2 font-semibold text-teal-700 no-underline hover:bg-teal-50"
+       href="${properties.link @ context='uri'}"
+       target="${properties.linkTarget}">
+        Leer mas
+    </a>
+</article>
+
+<sly data-sly-call="${templates.placeholder @ isEmpty = !hasContent}"/>

@@ -114,14 +114,6 @@
 
         <dependency>
             <groupId>com.aemtr</groupId>
-            <artifactId>aemtr.ui.frontend</artifactId>
-            <version>${project.version}</version>
-            <type>zip</type>
-        </dependency>
-
-
-        <dependency>
-            <groupId>com.aemtr</groupId>
             <artifactId>aemtr.ui.apps.structure</artifactId>
             <version>${project.version}</version>
             <type>zip</type>

@@ -15,10 +15,11 @@
 */-->
 
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html"
-     data-sly-call="${clientlib.js @ categories='aemtr.dependencies'}"/>
-<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html"
+<script src="https://cdn.tailwindcss.com"></script>
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
      data-sly-call="${clientlib.css @ categories='aemtr.base'}"/>
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
+     data-sly-call="${clientlib.css @ categories='aemtr.site'}"/>
 
 <!--/* Include Context Hub */-->
 <sly data-sly-resource="${'contexthub' @ resourceType='granite/contexthub/components/contexthub'}"/>
@@ -29,5 +30,3 @@
             data-sly-element="${item.element.name @ context='unsafe'}"
             data-sly-attribute="${item.attributes}"></script>
 </sly>
-
-

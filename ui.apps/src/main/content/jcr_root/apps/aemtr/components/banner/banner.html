@@ -1,17 +1,31 @@
-<div data-sly-use.model="com.aemtr.core.models.banner.BannerModel">
-    Model color: ${model.backgroundColor} <br>
+<sly data-sly-use.templates="core/wcm/components/commons/v1/templates.html"/>
+<sly data-sly-test.hasContent="${properties.title || properties.description || properties.imageReference}"/>
 
-    Title: ${properties.title}
-    ImageAlign: ${properties.imageAlign}
-    Image ${properties.imageReference}
-    target: ${properties.linkTarget}
-    link: ${properties.link}
-    background: ${properties.backgroundColor}
-
-    <div data-sly-resource="${'titlebanner' @ resourceType='aemtr/components/title'}">
+<section data-sly-test="${hasContent}"
+         class="my-10 overflow-hidden rounded-lg border border-slate-200 bg-white shadow-lg"
+         style="background-color: ${properties.backgroundColor @ context='unsafe'};">
+    <div class="grid items-center gap-8 p-6 md:grid-cols-2 md:p-10 ${properties.imageAlign == 'right' ? '' : 'md:[&>div:first-child]:order-2'}">
+        <div>
+            <p class="mb-3 text-sm font-semibold uppercase tracking-wide text-teal-700">AEMTR</p>
+            <h2 data-sly-test="${properties.title}" class="mb-4 text-3xl font-bold leading-tight text-slate-900 md:text-4xl">
+                ${properties.title}
+            </h2>
+            <p data-sly-test="${properties.description}" class="mb-6 max-w-prose text-lg text-slate-700">
+                ${properties.description}
+            </p>
+            <a data-sly-test="${properties.link}"
+               class="inline-flex rounded-lg bg-teal-700 px-5 py-3 font-semibold text-white no-underline hover:bg-teal-800"
+               href="${properties.link @ context='uri'}"
+               target="${properties.linkTarget}">
+                Ver contenido
+            </a>
+        </div>
+        <div data-sly-test="${properties.imageReference}" class="overflow-hidden rounded-lg bg-slate-100">
+            <img class="h-full w-full object-cover"
+                 src="${properties.imageReference @ context='uri'}"
+                 alt="${properties.title}"/>
+        </div>
     </div>
-    <div data-sly-resource="${'imgbanner' @ resourceType='aemtr/components/image'}">
-    </div>
+</section>
 
-
-</div>
+<sly data-sly-call="${templates.placeholder @ isEmpty = !hasContent}"/>

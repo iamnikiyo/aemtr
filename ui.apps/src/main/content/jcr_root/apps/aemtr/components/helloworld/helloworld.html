@@ -1,13 +1,13 @@
-<div class="cmp-helloworld" data-cmp-is="helloworld">
-    <h2 class="cmp-helloworld__title">Hello World Component</h2>
-    <div class="cmp-helloworld__item" data-sly-test="${properties.text}">
-        <p class="cmp-helloworld__item-label">Text property:</p>
-        <pre class="cmp-helloworld__item-output" data-cmp-hook-helloworld="property">${properties.text}</pre>
-    </div>
-    <div data-sly-resource="${'titlebanner' @ resourceType='aemtr/components/banner'}"></div>
-
-    <div class="cmp-helloworld__item" data-sly-use.model="com.aemtr.core.models.HelloWorldModel" data-sly-test="${model.message}">
-        <p class="cmp-helloworld__item-label">Model message:</p>
-        <pre class="cmp-helloworld__item-output"data-cmp-hook-helloworld="model">${model.message}</pre>
-    </div>
-</div>
+<section class="cmp-helloworld my-8 rounded-lg border border-slate-200 bg-white p-6 shadow-md"
+         data-sly-use.model="com.aemtr.core.models.HelloWorldModel">
+    <p class="mb-2 text-sm font-semibold uppercase tracking-wide text-teal-700">Componente de ejemplo</p>
+    <h2 class="mb-4 text-2xl font-bold text-slate-900">
+        ${properties.title || 'Hello World'}
+    </h2>
+    <p data-sly-test="${properties.text}" class="mb-4 text-lg text-slate-700">
+        ${properties.text}
+    </p>
+    <p data-sly-test="${model.message}" class="rounded-lg bg-slate-100 p-4 font-mono text-sm text-slate-800">
+        ${model.message}
+    </p>
+</section>

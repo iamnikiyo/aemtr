@@ -369,8 +369,7 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Generic Page"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    clientlibs="[aemtr.dependencies,aemtr.site]"
-                    clientlibsJsHead="aemtr.dependencies">
+                    clientlibs="[aemtr.site]">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                 </policy>
             </page>

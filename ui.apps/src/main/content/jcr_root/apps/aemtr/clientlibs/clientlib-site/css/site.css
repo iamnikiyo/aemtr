@@ -1,0 +1,166 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #f8fafc;
+  color: #0f172a;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.5;
+}
+
+a {
+  color: #0f766e;
+}
+
+main.container,
+main .cmp-container {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
+main.container {
+  padding: 32px 0 48px;
+}
+
+header.experiencefragment {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  border-bottom: 1px solid #dbe3ea;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+}
+
+header.experiencefragment > .cmp-container,
+header.experiencefragment .root > .cmp-container {
+  display: flex;
+  width: min(1120px, calc(100% - 32px));
+  min-height: 72px;
+  margin: 0 auto;
+  align-items: center;
+  gap: 24px;
+}
+
+header.experiencefragment .cmp-navigation {
+  flex: 1;
+}
+
+header.experiencefragment .cmp-navigation__group,
+header.experiencefragment .cmp-languagenavigation__group {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+header.experiencefragment .cmp-navigation__group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 18px;
+}
+
+header.experiencefragment .cmp-navigation__item-link,
+header.experiencefragment .cmp-languagenavigation__item-link {
+  color: #334155;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+header.experiencefragment .cmp-navigation__item--active > .cmp-navigation__item-link,
+header.experiencefragment a:hover,
+header.experiencefragment a:focus {
+  color: #0f766e;
+}
+
+header.experiencefragment .cmp-languagenavigation {
+  position: relative;
+}
+
+header.experiencefragment .cmp-languagenavigation > .cmp-languagenavigation__group {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 12px);
+  min-width: 180px;
+  padding: 12px;
+  border: 1px solid #dbe3ea;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+  visibility: hidden;
+}
+
+header.experiencefragment .cmp-languagenavigation:hover > .cmp-languagenavigation__group,
+header.experiencefragment .cmp-languagenavigation:focus-within > .cmp-languagenavigation__group {
+  visibility: visible;
+}
+
+header.experiencefragment .cmp-search__field {
+  display: flex;
+  align-items: center;
+}
+
+header.experiencefragment .cmp-search__input {
+  width: 180px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 8px 10px;
+  color: #0f172a;
+}
+
+footer.experiencefragment {
+  margin-top: 56px;
+  border-top: 1px solid #dbe3ea;
+  background: #0f172a;
+  color: #e2e8f0;
+}
+
+footer.experiencefragment > .cmp-container,
+footer.experiencefragment .root > .cmp-container {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 28px 0;
+}
+
+footer.experiencefragment .cmp-separator__horizontal-rule {
+  display: none;
+}
+
+footer.experiencefragment p {
+  margin: 4px 0;
+}
+
+.cmp-title__text {
+  margin: 0 0 16px;
+  color: #0f172a;
+  font-size: 2rem;
+  line-height: 1.15;
+}
+
+.cmp-teaser {
+  margin-bottom: 24px;
+  border: 1px solid #dbe3ea;
+  border-radius: 8px;
+  background: #ffffff;
+  padding: 24px;
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.08);
+}
+
+@media (max-width: 760px) {
+  header.experiencefragment > .cmp-container,
+  header.experiencefragment .root > .cmp-container {
+    min-height: auto;
+    padding: 18px 0;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  header.experiencefragment .cmp-navigation__group {
+    gap: 12px;
+  }
+
+  header.experiencefragment .cmp-search__input {
+    width: min(100%, 280px);
+  }
+}
