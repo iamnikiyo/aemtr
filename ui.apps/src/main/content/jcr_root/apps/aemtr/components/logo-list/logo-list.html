@@ -1,0 +1,16 @@
+<sly data-sly-use.model="com.aemtr.core.models.logolist.LogoListModel"></sly>
+<div
+     data-sly-use.templates="core/wcm/components/commons/v1/templates.html"
+     data-sly-test.hasContent="${model.logosMultifield}">
+    <section class="logo-list ${model.blog}">
+        <div>
+            <div data-sly-list="${model.logosMultifield}">
+                <div>
+                    <a data-sly-test="${item.link}" href="${item.link}"><img src="${item.logoReference}" alt="${item.imageAlt}"></a>
+                    <img data-sly-test="${!item.link}" src="${item.logoReference}" alt="${item.imageAlt}">
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<sly data-sly-call="${templates.placeholder @ isEmpty = !hasContent}"></sly>
