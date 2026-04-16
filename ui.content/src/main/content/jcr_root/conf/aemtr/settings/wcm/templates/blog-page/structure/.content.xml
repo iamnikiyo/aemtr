@@ -14,8 +14,7 @@
             layout="responsiveGrid">
             <experiencefragment-header
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="aemtr/components/experiencefragment"
-                fragmentVariationPath="/content/experience-fragments/aemtr/us/en/site/header/master"/>
+                sling:resourceType="aemtr/components/headerxf"/>
             <image
                 jcr:created="{Date}2026-04-09T16:49:55.223+02:00"
                 jcr:createdBy="admin"

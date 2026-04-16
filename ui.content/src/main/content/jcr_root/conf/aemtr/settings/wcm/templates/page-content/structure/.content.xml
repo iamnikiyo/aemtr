@@ -12,16 +12,11 @@
             layout="responsiveGrid">
             <experiencefragment-header
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="aemtr/components/experiencefragment"
-                fragmentVariationPath="/content/experience-fragments/aemtr/us/en/site/header/master"/>
+                sling:resourceType="aemtr/components/headerxf"/>
             <container
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="aemtr/components/container"
                 layout="responsiveGrid">
-                <title
-                    jcr:primaryType="nt:unstructured"
-                    sling:resourceType="aemtr/components/title"
-                    editable="{Boolean}true"/>
                 <container
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="aemtr/components/container"

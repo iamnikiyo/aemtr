@@ -1,0 +1,8 @@
+<div data-sly-use.fragment="com.adobe.cq.wcm.core.components.models.ExperienceFragment"
+     data-sly-use.template="core/wcm/components/commons/v1/templates.html"
+     data-sly-test=${inheritedPageProperties.headerXF} data-sly-set.selector="content.${request.requestPathInfo.selectorString}"
+     data-sly-resource="${@path=inheritedPageProperties.headerXF, selectors=selector, wcmmode='disabled'}"
+     id="${fragment.id}"
+     class="cmp-experiencefragment cmp-experiencefragment--${fragment.name}">
+</div>
+<sly data-sly-call="${template.placeholder @ isEmpty=!fragment.configured, classAppend='cmp-dd-experiencefragment'}"></sly>
