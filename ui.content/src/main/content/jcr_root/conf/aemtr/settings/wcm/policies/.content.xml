@@ -221,6 +221,14 @@
                     </cq:styleGroups>
                 </policy_641528232375303>
             </title>
+            <news-list jcr:primaryType="nt:unstructured">
+                <policy_news_list
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="News List"
+                    sling:resourceType="wcm/core/components/policy/policy">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                </policy_news_list>
+            </news-list>
             <experiencefragment jcr:primaryType="nt:unstructured">
                 <policy_header
                     cq:styleDefaultElement="header"
